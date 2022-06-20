@@ -1,6 +1,8 @@
 import type {AppProps} from "next/app";
 import {ChakraProvider} from "@chakra-ui/react";
 import {extendTheme} from "@chakra-ui/react";
+import {AuthProvider} from "@/lib/auth";
+import {supabase} from "@/lib/client";
 
 const theme = extendTheme({
   fonts: {
@@ -11,8 +13,10 @@ const theme = extendTheme({
 
 function MyApp({Component, pageProps}: AppProps) {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
+    <ChakraProvider theme={theme}>
+      <AuthProvider supabase={supabase}>
+        <Component {...pageProps} />
+      </AuthProvider>
     </ChakraProvider>
   );
 }
