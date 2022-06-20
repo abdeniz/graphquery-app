@@ -1,8 +1,20 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type {AppProps} from "next/app";
+import {ChakraProvider} from "@chakra-ui/react";
+import {extendTheme} from "@chakra-ui/react";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+const theme = extendTheme({
+  fonts: {
+    heading: `'Red Hat Display', sans-serif`,
+    body: `'Red Hat Display', sans-serif`,
+  },
+});
+
+function MyApp({Component, pageProps}: AppProps) {
+  return (
+    <ChakraProvider>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
