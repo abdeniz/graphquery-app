@@ -1,5 +1,5 @@
 import {supabase} from "@/lib/client";
-import {Button, FormLabel, Input} from "@chakra-ui/react";
+import {Button, Flex, FormLabel, Input} from "@chakra-ui/react";
 
 const Login = () => {
   const handleMagicLink = async (e: React.SyntheticEvent) => {
@@ -14,15 +14,21 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <Flex h="100vh" justifyContent="center" alignItems="center">
       <form onSubmit={handleMagicLink}>
         <FormLabel>E-mail</FormLabel>
-        <Input type="email" name="email" />
-        <Input as={Button} type="submit">
-          Submit
-        </Input>
+        <Input required type="email" name="email" mb="2" />
+        <Button
+          as={Button}
+          type="submit"
+          value="Get magic link"
+          colorScheme="red"
+          w="100%"
+        >
+          Get magic link
+        </Button>
       </form>
-    </div>
+    </Flex>
   );
 };
 

@@ -19,6 +19,7 @@ import {
   TbLayoutSidebarLeftCollapse,
   TbLayoutSidebarLeftExpand,
 } from "react-icons/tb";
+import {MdOutlineSpaceDashboard} from "react-icons/md";
 
 const SideNav = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -73,9 +74,22 @@ const SideNav = () => {
         {isCollapsed ? (
           <>
             <IconButton
+              aria-label="dashboard-button"
+              marginBottom="4"
+              icon={
+                <Icon
+                  w="6"
+                  h="6"
+                  color="#121212"
+                  as={MdOutlineSpaceDashboard}
+                />
+              }
+            />
+            <IconButton
               aria-label="queries-button"
               marginBottom="4"
               icon={<Icon w="6" h="6" color="#121212" as={GrNodes} />}
+              variant="outline"
             />
             <IconButton
               aria-label="databases-button"
@@ -87,8 +101,21 @@ const SideNav = () => {
           <>
             <Link>
               <Flex alignItems="center" marginBottom="4">
-                <Icon w="6" h="6" color="#121212" as={GrNodes} />
+                <Icon
+                  w="6"
+                  h="6"
+                  color="#121212"
+                  as={MdOutlineSpaceDashboard}
+                />
                 <Text color="#121212" fontWeight="semibold" marginLeft="4">
+                  Dashboard
+                </Text>
+              </Flex>
+            </Link>
+            <Link>
+              <Flex alignItems="center" marginBottom="4">
+                <Icon w="6" h="6" color="#676873" as={GrNodes} />
+                <Text color="#676873" fontWeight="semibold" marginLeft="4">
                   Query
                 </Text>
               </Flex>

@@ -1,3 +1,4 @@
+import {useAuth} from "@/lib/auth";
 import {ChevronDownIcon} from "@chakra-ui/icons";
 import {
   Avatar,
@@ -14,6 +15,10 @@ import {
 type Props = {};
 
 const TopNav = (props: Props) => {
+  const {user, signOut} = useAuth();
+
+  const username = user?.email;
+
   return (
     <GridItem
       bg="#fff"
@@ -31,7 +36,7 @@ const TopNav = (props: Props) => {
         <Image src="/logo.svg" alt="logo" />
         <Flex alignItems="center">
           <Avatar
-            name={"Name"}
+            name={username}
             // src={avatarUrl}
             size="sm"
             marginRight={2}
@@ -44,11 +49,11 @@ const TopNav = (props: Props) => {
               fontSize="sm"
               rightIcon={<ChevronDownIcon />}
             >
-              {"Name"}
+              {username}
             </MenuButton>
             <MenuList>
               <MenuItem>Settings</MenuItem>
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem onClick={() => signOut()}>Sign out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
