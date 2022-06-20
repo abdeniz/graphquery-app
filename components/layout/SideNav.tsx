@@ -20,6 +20,7 @@ import {
   TbLayoutSidebarLeftExpand,
 } from "react-icons/tb";
 import {MdOutlineSpaceDashboard} from "react-icons/md";
+import {default as NextLink} from "next/link";
 
 const SideNav = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -76,6 +77,7 @@ const SideNav = () => {
             <IconButton
               aria-label="dashboard-button"
               marginBottom="4"
+              variant="outline"
               icon={
                 <Icon
                   w="6"
@@ -89,45 +91,49 @@ const SideNav = () => {
               aria-label="queries-button"
               marginBottom="4"
               icon={<Icon w="6" h="6" color="#121212" as={GrNodes} />}
-              variant="outline"
             />
             <IconButton
               aria-label="databases-button"
               icon={<Icon w="6" h="6" color="#121212" as={FiDatabase} />}
-              variant="outline"
             />
           </>
         ) : (
           <>
-            <Link>
-              <Flex alignItems="center" marginBottom="4">
-                <Icon
-                  w="6"
-                  h="6"
-                  color="#121212"
-                  as={MdOutlineSpaceDashboard}
-                />
-                <Text color="#121212" fontWeight="semibold" marginLeft="4">
-                  Dashboard
-                </Text>
-              </Flex>
-            </Link>
-            <Link>
-              <Flex alignItems="center" marginBottom="4">
-                <Icon w="6" h="6" color="#676873" as={GrNodes} />
-                <Text color="#676873" fontWeight="semibold" marginLeft="4">
-                  Query
-                </Text>
-              </Flex>
-            </Link>
-            <Link>
-              <Flex alignItems="center">
-                <Icon w="6" h="6" color="#676873" as={FiDatabase} />
-                <Text color="#676873" fontWeight="semibold" marginLeft="4">
-                  Databases
-                </Text>
-              </Flex>
-            </Link>
+            <NextLink href="/">
+              <Link>
+                <Flex alignItems="center" marginBottom="4">
+                  <Icon
+                    w="6"
+                    h="6"
+                    color="#121212"
+                    as={MdOutlineSpaceDashboard}
+                  />
+                  <Text textStyle="h3" color="#121212" marginLeft="4">
+                    Dashboard
+                  </Text>
+                </Flex>
+              </Link>
+            </NextLink>
+            <NextLink href="/query">
+              <Link>
+                <Flex alignItems="center" marginBottom="4">
+                  <Icon w="6" h="6" color="#676873" as={GrNodes} />
+                  <Text textStyle="h3" color="#676873" marginLeft="4">
+                    Query
+                  </Text>
+                </Flex>
+              </Link>
+            </NextLink>
+            <NextLink href="/databases">
+              <Link>
+                <Flex alignItems="center">
+                  <Icon w="6" h="6" color="#676873" as={FiDatabase} />
+                  <Text textStyle="h3" color="#676873" marginLeft="4">
+                    Databases
+                  </Text>
+                </Flex>
+              </Link>
+            </NextLink>
           </>
         )}
       </Flex>

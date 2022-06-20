@@ -12,11 +12,11 @@ const Layout = ({children}: Props) => {
     <Grid
       h="100vh"
       templateColumns="minmax(50px, min-content) auto"
-      templateRows="60px auto"
+      templateRows="60px calc(100vh - 60px)"
     >
       <TopNav />
       <SideNav />
-      <GridItem>{children}</GridItem>
+      <div>{children}</div>
     </Grid>
   );
 };
