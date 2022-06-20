@@ -1,7 +1,7 @@
 import {supabase} from "@/lib/client";
 import {Button, FormLabel, Input} from "@chakra-ui/react";
 
-const login = () => {
+const Login = () => {
   const handleMagicLink = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     const target = e.target as typeof e.target & {
@@ -26,4 +26,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
